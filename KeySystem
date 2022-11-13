@@ -3,6 +3,7 @@ local Player = game.Players.LocalPlayer
 local Window = OrionLib:MakeWindow({Name = "Key System", HidePremium = false, IntroEnabled = false, SaveConfig = true, ConfigFolder = "KeySystem"})
 
 -- Key System
+_G.Key = "parkerisbald"
 _G.KeyInput = "string"
 
 function CorrectKeyNotification()
@@ -42,7 +43,7 @@ Tab:AddTextbox({
 Tab:AddButton({
     Name = "Check Key",
     Callback = function()
-        if _G.KeyInput == "bald" then
+        if _G.KeyInput == _G.Key then
             CorrectKeyNotification()
             if game.PlaceId == 11424205505 then
                 game:GetService("CoreGui").Orion:Destroy()
