@@ -45,7 +45,8 @@ Tab:AddButton({
         if _G.KeyInput == "bald" then
             CorrectKeyNotification()
             if game.PlaceId == 11424205505 then
-                BlockPlace()
+                loadstring(game:HttpGet("https://raw.githubusercontent.com/DarkStarsGaming/DarkStarsGaming-s-Script-Hub/main/BlockPlace"))();
+                game:GetService("CoreGui").Orion:Destroy()
             end
         else
             InCorrectKeyNotification()
