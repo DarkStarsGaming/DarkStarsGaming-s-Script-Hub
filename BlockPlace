@@ -1,5 +1,5 @@
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-local BlockPlace = OrionLib:MakeWindow({Name = "Block Place | DarkStarsGaming#6722", HidePremium = false, IntroEnabled = true, IntroText = "Dark's Script", SaveConfig = true, ConfigFolder = "BlockPlace"})
+local BlockPlace = OrionLib:MakeWindow({Name = "Block Place | DarkStarsGaming#6722", HidePremium = false, IntroEnabled = true, IntroText = "Block Place", SaveConfig = true, ConfigFolder = "BlockPlace"})
 _G.Player1 = "string"
 _G.Player2 = "string"
 _G.Coordinates = "string"
