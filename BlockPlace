@@ -315,11 +315,13 @@ if game.Players.LocalPlayer.UserId == 769968187 then
         
     OrionLib:Init()
 else
+    local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
     OrionLib:MakeNotification({
         Name = "No Access!",
         Content = "You do not have access to execute the script for this game!",
         Image = "rbxassetid://4483345998",
         Time = 5
     })
-
+    wait(5)
     loadstring(game:HttpGet("https://raw.githubusercontent.com/DarkStarsGaming/DarkStarsGaming-s-Script-Hub/main/KeySystem"))();
+end
