@@ -54,15 +54,15 @@ Tab:AddButton({
     Callback = function()
         if _G.KeyInput == _G.Key then
             CorrectKeyNotification()
-            if game.PlaceId == 11424205505 then
-                if game.Players.LocalPlayer.UserId == 769968187 then
+            if game.Players.LocalPlayer.UserId == 769968187 then
+                if game.PlaceId == 11424205505 then
                     game:GetService("CoreGui").Orion:Destroy()
                     loadstring(game:HttpGet("https://raw.githubusercontent.com/DarkStarsGaming/DarkStarsGaming-s-Script-Hub/main/BlockPlace"))();
-                else
-                    NoAccess()
-                    wait(3)
-                    loadstring(game:HttpGet("https://raw.githubusercontent.com/DarkStarsGaming/DarkStarsGaming-s-Script-Hub/main/KeySystem"))();
                 end
+            else
+                NoAccess()
+                wait(3)
+                loadstring(game:HttpGet("https://raw.githubusercontent.com/DarkStarsGaming/DarkStarsGaming-s-Script-Hub/main/KeySystem"))();
             end
         else
             InCorrectKeyNotification()
