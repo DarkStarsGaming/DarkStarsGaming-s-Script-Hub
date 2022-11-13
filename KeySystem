@@ -11,7 +11,7 @@ function NoAccess()
         Name = "No Access!",
         Content = "You do not have access to execute the script for this game!",
         Image = "rbxassetid://4483345998",
-        Time = 5
+        Time = 3
     })
 end
 
@@ -60,6 +60,7 @@ Tab:AddButton({
                     loadstring(game:HttpGet("https://raw.githubusercontent.com/DarkStarsGaming/DarkStarsGaming-s-Script-Hub/main/BlockPlace"))();
                 else
                     NoAccess()
+                    wait(3)
                     loadstring(game:HttpGet("https://raw.githubusercontent.com/DarkStarsGaming/DarkStarsGaming-s-Script-Hub/main/KeySystem"))();
                 end
             end
