@@ -1,327 +1,315 @@
-if game.Players.LocalPlayer.UserId == 769968187 then
-    local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-    local BlockPlace = OrionLib:MakeWindow({Name = "Block Place", HidePremium = false, IntroEnabled = true, IntroText = "Block Place", SaveConfig = true, ConfigFolder = "BlockPlace"})
-    _G.Player1 = "string"
-    _G.Player2 = "string"
-    _G.Coordinates = "string"
-    _G.autoAction = true
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local BlockPlace = OrionLib:MakeWindow({Name = "Block Place", HidePremium = false, IntroEnabled = true, IntroText = "Block Place", SaveConfig = true, ConfigFolder = "BlockPlace"})
+_G.Player1 = "string"
+_G.Player2 = "string"
+_G.Coordinates = "string"
+_G.autoAction = true
 
-    function autoAction()
-        while _G.autoAction == true do
-            wait(62)
-            local args = {
-                [1] = ">getactions",
-                [2] = "All"
-            }
+function autoAction()
+    while _G.autoAction == true do
+        wait(62)
+        local args = {
+            [1] = ">getactions",
+            [2] = "All"
+        }
 
-            game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(unpack(args))  
-        end
+        game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(unpack(args))  
     end
-
-    -- Admin Commands
-    local AdminCommandsTab = BlockPlace:MakeTab({
-        Name = "Self Commands",
-        Icon = "rbxassetid://4483345998",
-        PremiumOnly = false
-    })
-
-    AdminCommandsTab:AddButton({
-        Name = "Give Actions",
-        Callback = function()
-            local args = {
-                [1] = ">getactions",
-                [2] = "All"
-            }
-
-            game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(unpack(args))   
-        end    
-    })
-
-    AdminCommandsTab:AddToggle({
-        Name = "Auto Actions!",
-        Default = false,
-        Callback = function(Value)
-            print(Value)
-            _G.autoAction = Value
-            autoAction()
-        end    
-    })
-
-    AdminCommandsTab:AddButton({
-        Name = "Hide Yourself",
-        Callback = function()
-            local args = {
-                [1] = ">hide DarkStarzGaming",
-                [2] = "All"
-            }
-
-            game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(unpack(args))   
-        end    
-    })
-
-    AdminCommandsTab:AddButton({
-        Name = "Show Command List",
-        Callback = function()
-            local args = {
-                [1] = ">cmds",
-                [2] = "All"
-            }
-
-            game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(unpack(args))   
-        end    
-    })
-
-    AdminCommandsTab:AddTextbox({
-        Name = "Crash",
-        Default = "",
-        TextDisappear = true,
-        Callback = function(txt)
-            local args = {
-                [1] = ">crash "..txt.."",
-                [2] = "All"
-            }
-
-            game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(unpack(args))    
-        end
-    })
-
-    AdminCommandsTab:AddTextbox({
-        Name = "Banhistory",
-        Default = "",
-        TextDisappear = true,
-        Callback = function(txt)
-            local args = {
-                [1] = ">banhistory "..txt.."",
-                [2] = "All"
-            }
-
-            game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(unpack(args))    
-        end
-    })
-
-    AdminCommandsTab:AddTextbox({
-        Name = "Ban",
-        Default = "",
-        TextDisappear = true,
-        Callback = function(txt)
-            local args = {
-                [1] = ">ban "..txt.."",
-                [2] = "All"
-            }
-
-            game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(unpack(args))    
-        end
-    })
-
-    AdminCommandsTab:AddTextbox({
-        Name = "Unban",
-        Default = "",
-        TextDisappear = true,
-        Callback = function(txt)
-            local args = {
-                [1] = ">unban "..txt.."",
-                [2] = "All"
-            }
-
-            game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(unpack(args))    
-        end
-    })
-
-    AdminCommandsTab:AddTextbox({
-        Name = "Spectate",
-        Default = "",
-        TextDisappear = true,
-        Callback = function(txt)
-            local args = {
-                [1] = ">spectate "..txt.."",
-                [2] = "All"
-            }
-
-            game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(unpack(args))    
-        end
-    })
-
-    -- Trolling
-
-    local Troll = BlockPlace:MakeTab({
-        Name = "Trolling",
-        Icon = "rbxassetid://4483345998",
-        PremiumOnly = false
-    })
-
-    Troll:AddTextbox({
-        Name = "Messgui",
-        Default = "",
-        TextDisappear = true,
-        Callback = function(txt)
-            local args = {
-                [1] = ">messgui "..txt.."",
-                [2] = "All"
-            }
-
-            game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(unpack(args))    
-        end
-    })
-
-    Troll:AddTextbox({
-        Name = "Kill",
-        Default = "",
-        TextDisappear = true,
-        Callback = function(txt)
-            local args = {
-                [1] = ">kill "..txt.."",
-                [2] = "All"
-            }
-
-            game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(unpack(args))    
-        end
-    })
-
-    Troll:AddTextbox({
-        Name = "Kick",
-        Default = "",
-        TextDisappear = true,
-        Callback = function(txt)
-            local args = {
-                [1] = ">kick "..txt.."",
-                [2] = "All"
-            }
-
-            game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(unpack(args))    
-        end
-    })
-
-    -- Teleporting
-
-    local Teleport = BlockPlace:MakeTab({
-        Name = "Teleporting",
-        Icon = "rbxassetid://4483345998",
-        PremiumOnly = false
-    })
-
-    Teleport:AddLabel("Teleport player to another player")
-
-    Teleport:AddTextbox({
-        Name = "Player1",
-        Default = "",
-        TextDisappear = false,
-        Callback = function(Value)
-            _G.Player1 = Value
-        end
-    })
-
-    Teleport:AddTextbox({
-        Name = "Player2",
-        Default = "",
-        TextDisappear = false,
-        Callback = function(Value)
-            _G.Player2 = Value
-        end
-    })
-
-    Teleport:AddButton({
-        Name = "Teleport Player",
-        Callback = function()
-            local args = {
-                [1] = ">teleport ".._G.Player1.." ".._G.Player2.."",
-                [2] = "All"
-            }
-
-            game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(unpack(args))   
-        end    
-    })
-
-    Teleport:AddLabel("Teleport player to coordinates")
-
-    Teleport:AddTextbox({
-        Name = "Player",
-        Default = "",
-        TextDisappear = false,
-        Callback = function(Value)
-            _G.Player1 = Value
-        end
-    })
-
-    Teleport:AddTextbox({
-        Name = "Coordinates",
-        Default = "",
-        TextDisappear = false,
-        Callback = function(Value)
-            _G.Coordinates = Value
-        end
-    })
-
-    Teleport:AddButton({
-        Name = "Teleport Player",
-        Callback = function()
-            local args = {
-                [1] = ">tp ".._G.Player1.." ".._G.Coordinates.."",
-                [2] = "All"
-            }
-
-            game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(unpack(args))   
-        end    
-    })
-
-    -- Player Configuration
-    local Player = BlockPlace:MakeTab({
-        Name = "Player",
-        Icon = "rbxassetid://4483345998",
-        PremiumOnly = false
-    })
-
-    Player:AddTextbox({
-        Name = "Walkspeed",
-        Default = "",
-        TextDisappear = true,
-        Callback = function(txt)
-            local args = {
-                [1] = ">walkspeed "..txt.."",
-                [2] = "All"
-            }
-
-            game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(unpack(args))    
-        end
-    })
-
-    Player:AddTextbox({
-        Name = "Jumppower",
-        Default = "",
-        TextDisappear = true,
-        Callback = function(txt)
-            local args = {
-                [1] = ">jumppower "..txt.."",
-                [2] = "All"
-            }
-
-            game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(unpack(args))    
-        end
-    })
-
-    -- Settings
-
-    local Settings = BlockPlace:MakeTab({
-        Name = "Settings",
-        Icon = "rbxassetid://4483345998",
-        PremiumOnly = false
-    })
-
-    Settings:AddButton({
-        Name = "Destroy UI!",
-        Callback = function()
-            OrionLib:Destroy()
-        end    
-    })
-        
-    OrionLib:Init()
-else
-    local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-    OrionLib:MakeNotification({
-        Name = "No Access!",
-        Content = "You do not have access to execute the script for this game!",
-        Image = "rbxassetid://4483345998",
-        Time = 5
-    })
-    wait(5)
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/DarkStarsGaming/DarkStarsGaming-s-Script-Hub/main/KeySystem"))();
 end
+
+-- Admin Commands
+local AdminCommandsTab = BlockPlace:MakeTab({
+    Name = "Self Commands",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
+
+AdminCommandsTab:AddButton({
+    Name = "Give Actions",
+    Callback = function()
+        local args = {
+            [1] = ">getactions",
+            [2] = "All"
+        }
+
+        game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(unpack(args))   
+    end    
+})
+
+AdminCommandsTab:AddToggle({
+    Name = "Auto Actions!",
+    Default = false,
+    Callback = function(Value)
+        print(Value)
+        _G.autoAction = Value
+        autoAction()
+    end    
+})
+
+AdminCommandsTab:AddButton({
+    Name = "Hide Yourself",
+    Callback = function()
+        local args = {
+            [1] = ">hide DarkStarzGaming",
+            [2] = "All"
+        }
+
+        game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(unpack(args))   
+    end    
+})
+
+AdminCommandsTab:AddButton({
+    Name = "Show Command List",
+    Callback = function()
+        local args = {
+            [1] = ">cmds",
+            [2] = "All"
+        }
+
+        game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(unpack(args))   
+    end    
+})
+
+AdminCommandsTab:AddTextbox({
+    Name = "Crash",
+    Default = "",
+    TextDisappear = true,
+    Callback = function(txt)
+        local args = {
+            [1] = ">crash "..txt.."",
+            [2] = "All"
+        }
+
+        game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(unpack(args))    
+    end
+})
+
+AdminCommandsTab:AddTextbox({
+    Name = "Banhistory",
+    Default = "",
+    TextDisappear = true,
+    Callback = function(txt)
+        local args = {
+            [1] = ">banhistory "..txt.."",
+            [2] = "All"
+        }
+
+        game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(unpack(args))    
+    end
+})
+
+AdminCommandsTab:AddTextbox({
+    Name = "Ban",
+    Default = "",
+    TextDisappear = true,
+    Callback = function(txt)
+        local args = {
+            [1] = ">ban "..txt.."",
+            [2] = "All"
+        }
+
+        game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(unpack(args))    
+    end
+})
+
+AdminCommandsTab:AddTextbox({
+    Name = "Unban",
+    Default = "",
+    TextDisappear = true,
+    Callback = function(txt)
+        local args = {
+            [1] = ">unban "..txt.."",
+            [2] = "All"
+        }
+
+        game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(unpack(args))    
+    end
+})
+
+AdminCommandsTab:AddTextbox({
+    Name = "Spectate",
+    Default = "",
+    TextDisappear = true,
+    Callback = function(txt)
+        local args = {
+            [1] = ">spectate "..txt.."",
+            [2] = "All"
+        }
+
+        game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(unpack(args))    
+    end
+})
+
+-- Trolling
+
+local Troll = BlockPlace:MakeTab({
+    Name = "Trolling",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
+
+Troll:AddTextbox({
+    Name = "Messgui",
+    Default = "",
+    TextDisappear = true,
+    Callback = function(txt)
+        local args = {
+            [1] = ">messgui "..txt.."",
+            [2] = "All"
+        }
+
+        game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(unpack(args))    
+    end
+})
+
+Troll:AddTextbox({
+    Name = "Kill",
+    Default = "",
+    TextDisappear = true,
+    Callback = function(txt)
+        local args = {
+            [1] = ">kill "..txt.."",
+            [2] = "All"
+        }
+
+        game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(unpack(args))    
+    end
+})
+
+Troll:AddTextbox({
+    Name = "Kick",
+    Default = "",
+    TextDisappear = true,
+    Callback = function(txt)
+        local args = {
+            [1] = ">kick "..txt.."",
+            [2] = "All"
+        }
+
+        game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(unpack(args))    
+    end
+})
+
+-- Teleporting
+
+local Teleport = BlockPlace:MakeTab({
+    Name = "Teleporting",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
+
+Teleport:AddLabel("Teleport player to another player")
+
+Teleport:AddTextbox({
+    Name = "Player1",
+    Default = "",
+    TextDisappear = false,
+    Callback = function(Value)
+        _G.Player1 = Value
+    end
+})
+
+Teleport:AddTextbox({
+    Name = "Player2",
+    Default = "",
+    TextDisappear = false,
+    Callback = function(Value)
+        _G.Player2 = Value
+    end
+})
+
+Teleport:AddButton({
+    Name = "Teleport Player",
+    Callback = function()
+        local args = {
+            [1] = ">teleport ".._G.Player1.." ".._G.Player2.."",
+            [2] = "All"
+        }
+
+        game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(unpack(args))   
+    end    
+})
+
+Teleport:AddLabel("Teleport player to coordinates")
+
+Teleport:AddTextbox({
+    Name = "Player",
+    Default = "",
+    TextDisappear = false,
+    Callback = function(Value)
+        _G.Player1 = Value
+    end
+})
+
+Teleport:AddTextbox({
+    Name = "Coordinates",
+    Default = "",
+    TextDisappear = false,
+    Callback = function(Value)
+        _G.Coordinates = Value
+    end
+})
+
+Teleport:AddButton({
+    Name = "Teleport Player",
+    Callback = function()
+        local args = {
+            [1] = ">tp ".._G.Player1.." ".._G.Coordinates.."",
+            [2] = "All"
+        }
+
+        game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(unpack(args))   
+    end    
+})
+
+-- Player Configuration
+local Player = BlockPlace:MakeTab({
+    Name = "Player",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
+
+Player:AddTextbox({
+    Name = "Walkspeed",
+    Default = "",
+    TextDisappear = true,
+    Callback = function(txt)
+        local args = {
+            [1] = ">walkspeed "..txt.."",
+            [2] = "All"
+        }
+
+        game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(unpack(args))    
+    end
+})
+
+Player:AddTextbox({
+    Name = "Jumppower",
+    Default = "",
+    TextDisappear = true,
+    Callback = function(txt)
+        local args = {
+            [1] = ">jumppower "..txt.."",
+            [2] = "All"
+        }
+
+        game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(unpack(args))    
+    end
+})
+
+-- Settings
+
+local Settings = BlockPlace:MakeTab({
+    Name = "Settings",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
+
+Settings:AddButton({
+    Name = "Destroy UI!",
+    Callback = function()
+        OrionLib:Destroy()
+    end    
+})
+    
+OrionLib:Init()
