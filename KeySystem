@@ -60,9 +60,8 @@ Tab:AddButton({
                     loadstring(game:HttpGet("https://raw.githubusercontent.com/DarkStarsGaming/DarkStarsGaming-s-Script-Hub/main/BlockPlace"))();
                 end
             else
-                NoAccess()
-                wait(3)
                 loadstring(game:HttpGet("https://raw.githubusercontent.com/DarkStarsGaming/DarkStarsGaming-s-Script-Hub/main/KeySystem"))();
+                NoAccess()
             end
         else
             InCorrectKeyNotification()
