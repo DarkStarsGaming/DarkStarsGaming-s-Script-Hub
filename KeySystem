@@ -1,0 +1,54 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Player = game.Players.LocalPlayer
+local Window = OrionLib:MakeWindow({Name = "Key System", HidePremium = false, IntroEnabled = false, SaveConfig = true, ConfigFolder = "KeySystem"})
+
+-- Key System
+_G.KeyInput = "string"
+
+function CorrectKeyNotification()
+    OrionLib:MakeNotification({
+        Name = "Correct Key!",
+        Content = "You have entered the correct key!",
+        Image = "rbxassetid://4483345998",
+        Time = 5
+    })
+end
+
+function InCorrectKeyNotification()
+    OrionLib:MakeNotification({
+        Name = "Inorrect Key!",
+        Content = "You have entered the incorrect key!",
+        Image = "rbxassetid://4483345998",
+        Time = 5
+    })
+end
+
+local Tab = Window:MakeTab({
+    Name = "Key",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
+
+
+Tab:AddTextbox({
+    Name = "Enter Key",
+    Default = "",
+    TextDisappear = false,
+    Callback = function(Value)
+        _G.KeyInput = Value
+    end
+})
+
+Tab:AddButton({
+    Name = "Check Key",
+    Callback = function()
+        if _G.KeyInput == "bald" then
+            CorrectKeyNotification()
+            if game.PlaceId == 11424205505 then
+                BlockPlace()
+            end
+        else
+            InCorrectKeyNotification()
+        end
+    end
+})
