@@ -1,6 +1,6 @@
 if AuthKey == "experiment" then
     if game.PlaceId == 3057050847 then
-        print("Loaded Site 76 Script")
+        print("Loaded Site 76 Script <3")
         loadstring(game:HttpGet("https://raw.githubusercontent.com/DarkStarsGaming/DarkStarsGaming-s-Script-Hub/main/Site%2076"))();
         return
     elseif game.placeId == 11424205505 then
